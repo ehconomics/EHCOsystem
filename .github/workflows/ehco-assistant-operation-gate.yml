@@ -1,0 +1,24 @@
+name: EHCO Assistant Operation Gate
+on:
+  pull_request:
+  workflow_dispatch:
+    inputs:
+      base_ref:
+        description: Optional base commit or ref for bounded-diff validation
+        required: false
+        default: ""
+permissions: {contents: read}
+jobs:
+  validate:
+    name: EHCO Assistant Operation Gate
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with: {python-version: "3.12"}
+      - name: Validate bounded EHCO assistant operation
+        uses: EHCOnomics-Systems/EHCO/.github/actions/assistant-operation-gate@401e1283ebe5840896981f54e06b36a16b7dfc13
+        with:
+          base-ref: ${{ github.event.pull_request.base.sha || inputs.base_ref }}
+          canonical-source-revision: 401e1283ebe5840896981f54e06b36a16b7dfc13

@@ -1,0 +1,68 @@
+schema: ehco.operation.v1
+protocol_reference:
+  source_repository: EHCOnomics-Systems/EHCO
+  source_revision: 401e1283ebe5840896981f54e06b36a16b7dfc13
+  protocol_version: 1.0.0
+  protocol_path: governance/AI_ASSISTED_DEVELOPMENT_PROTOCOL.md
+  schema_path: governance/schemas/ehco.operation.v1.schema.json
+repository: EHCOnomics-Systems/EHCOsystem
+governed_object: REPOSITORY_ASSISTANT_CONTROL_ADOPTION
+source_owner:
+  repository: EHCOnomics-Systems/EHCOsystem
+  revision: a693e52c6f8bb8eb5929ecebe373d57c6a9fff7d
+  repository_manifest_path: ehco.repository.yaml
+  controlling_source_reference: ehco.repository.yaml
+selection:
+  selected_by: Edward Henry
+  selection_class: EXPLICIT_OWNER_DIRECTION
+  durable_reference: 'Owner directive 2026-08-08: accept organization execution continuity and make all governed controls accurate before resuming development.'
+  source_base_revision: a693e52c6f8bb8eb5929ecebe373d57c6a9fff7d
+  expected_reviewed_head_revision: NOT_APPLICABLE_UNTIL_ACCEPT
+control_anchor: AGENTS.md
+status_owner_path: ehco.operation.yaml
+accepted_standing: 52/53
+active_operation:
+  operation_id: EHCO-AI-CONTROL-ADOPTION-001
+  state: ACTIVE
+  authorization_mode: PUBLISH
+  bounded_outcome: Adopt the accepted all-model execution-continuity control without changing public-evidence role, authority, deployment, or Runtime state.
+  remaining_bounded_work: [Publish the three-file control-adoption draft pull request., Run the pinned canonical operation gate on the exact pull-request head., Correct and reverify any in-scope failure until green., Reconcile this operation to PUBLISH-complete at the validated head.]
+  interaction_seams: [Public evidence repository identity and canonical EHCO assistant control.]
+  non_overlap: [No evidence-content, repository-classification, deployment, release, or Runtime-state change.]
+  automatic_successor: PROHIBITED
+  successor_operation: NOT_SELECTED
+execution_continuity:
+  policy_id: EHCO_EXECUTION_CONTINUITY_V1
+  model_scope: ALL_ASSISTANT_MODELS
+  work_unit: SELECTED_OPERATION_CHAIN
+  depth_policy: COMPLETE_DEPENDENT_STEPS_WITHIN_SCOPE
+  failure_policy: DIAGNOSE_CORRECT_REVERIFY_CONTINUE
+  intra_scope_reapproval: NOT_REQUIRED
+  cleanup_policy: RECONCILE_OPERATIONAL_DEBRIS_BEFORE_COMPLETE
+  stop_policy: REAL_SCOPE_AUTHORITY_SAFETY_OR_OWNER_BOUNDARY_ONLY
+  local_override: MAY_TIGHTEN_NOT_WEAKEN
+scope:
+  permitted_paths: [AGENTS.md, ehco.operation.yaml, .github/workflows/ehco-assistant-operation-gate.yml]
+  controlled_paths: [AGENTS.md, ehco.operation.yaml, .github/workflows/ehco-assistant-operation-gate.yml]
+  prohibited_paths: [ehco.repository.yaml]
+change_control:
+  control_change_declared: true
+  delete_or_move_authorized: false
+  local_actions_authorized: [read_source, compare_source, audit, propose, create_file, update_file, run_checks]
+  local_actions_prohibited: [move_file, delete_file, generate_artifact]
+  remote_actions_authorized: [create_branch, commit, push, open_draft_pull_request, update_draft_pull_request]
+  remote_actions_prohibited: [merge_pull_request, record_owner_acceptance, close_operation, activate_selected_successor, modify_repository_settings, modify_drive_controls, publish_image, mutate_environment, deploy, release, invoke_runtime, admit_runtime, bind_runtime]
+effects: {authority_effect: NONE, standing_effect: NONE, runtime_effect: NONE, deployment_effect: NONE, release_effect: NONE, external_effect: NONE}
+bridge:
+  applicability: NOT_APPLICABLE_NON_PARTICIPANT
+  non_applicability_reason: This operation governs repository assistant-control adoption, not an executable participant or Runtime state.
+  direct_invocation: PROHIBITED
+  runtime_admission_status: NOT_ESTABLISHED
+  participation_binding_status: NOT_ESTABLISHED
+  canonical_runtime_receipt_status: NOT_ESTABLISHED
+evidence:
+  evidence_class: REPOSITORY_SOURCE_AND_DIFF_VALIDATION
+  required_checks: [EHCO Assistant Operation Gate, canonical execution-continuity fixtures]
+  proves: [The repository adoption satisfies the accepted canonical control and remains a three-file diff.]
+  evidence_not_created: [owner acceptance, evidence promotion, deployment, release, Runtime admission, participation binding, canonical Runtime receipt]
+stop_condition: [Continue through correctable in-scope failures., Stop at PUBLISH completion only after the exact draft pull-request head is reconciled and green., Do not merge deploy invoke Runtime release change standing or select a successor under PUBLISH.]
